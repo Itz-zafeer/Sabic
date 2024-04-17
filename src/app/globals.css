@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal/Tajawal-Regular.ttf");
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal/Tajawal-Medium.ttf");
+  font-weight: 500;
+  font-display: block;
+}
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal/Tajawal-Bold.ttf");
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik/Rubik-Regular.ttf");
+  font-weight: 400;
+  font-display: block;
+}
+.Rubik {
+  font-family: "Rubik";
+}
+body {
+  font-family: "Tajawal";
+  font-weight: 400;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .Container1240 {
+    @apply mx-[auto] lg:w-[86.1111111111vw] sm:w-[90%] w-[345px];
+  }
+  .text16 {
+    @apply lg:text-[1.11111111111vw] lg:leading-[1.66666666667vw]
+    sm:text-[16px] sm:leading-[22px]
+    text-[14px] leading-[21px];
+  }
+  .text18 {
+    @apply lg:text-[1.25vw] lg:leading-[1.875vw]
+    text-[18px] leading-[27px];
+  }
+  .text20 {
+    @apply lg:text-[1.38888888889vw] lg:leading-[2.08333333333vw]
+    sm:text-[22px] sm:leading-[32px]
+    text-[18px] leading-[27px];
+  }
+  .text24 {
+    @apply lg:text-[1.66666666667vw] lg:leading-[2.5vw]
+    sm:text-[22px] sm:leading-[32px]
+    text-[14px] leading-[21px];
+  }
+  .text28 {
+    @apply lg:text-[1.94444444444vw] lg:leading-[2.91666666667vw]
+    sm:text-[32px] sm:leading-[46px]
+    text-[28px] leading-[42px];
+  }
+  .text48 {
+    @apply lg:text-[3.33333333333vw] lg:leading-[3.95833333333vw]
+    sm:text-[40px] sm:leading-[50px]
+    text-[32px] leading-[38px];
+  }
+  .text72 {
+    @apply lg:text-[5vw] lg:leading-[5.97222222222vw]
+    sm:text-[44px] sm:leading-[54px]
+    text-[48px] leading-[57px];
+  }
+
+  .leftRightFixer1 {
+    @apply left-0;
+  }
+  .rtl .leftRightFixer1 {
+    @apply right-0;
+  }
+  .rtl .leftRightFixer2 {
+    @apply left-0;
+  }
+  .leftRightFixer2 {
+    @apply right-0;
+  }
+  .atlwh_Full {
+    @apply absolute w-full h-full top-0 leftRightFixer1;
+  }
+  .f500 {
+    @apply font-[500];
+  }
+  .f700 {
+    @apply font-[700];
+  }
+  .border20 {
+    @apply lg:rounded-[1.38888888889vw] rounded-[15px];
+  }
+  .border10 {
+    @apply lg:rounded-[0.69444444444vw] rounded-[10px];
+  }
+  .border7 {
+    @apply lg:rounded-[0.48611111111vw] rounded-[7px];
+  }
+  .member_Card button,
+  .member_Card button svg,
+  .member_Card button svg path {
+    @apply transition-all duration-300;
+  }
+
+  .member_Card button:hover {
+    @apply text-[#FF9900];
+  }
+  .ltr .member_Card button:hover svg {
+    @apply lg:ml-[0.34722222222vw];
+  }
+  .rtl .member_Card button:hover svg {
+    @apply lg:mr-[0.34722222222vw];
+  }
+  .rtl .flipped {
+    @apply transform scale-x-[-1];
+  }
+}
+
+.member_Card button:hover svg path {
+  fill: #ff9900;
+}
+
+.navbar_Overlay {
+  background: linear-gradient(180deg, #121212 0%, rgba(18, 18, 18, 0.07) 100%);
+}
+.hero_Overlay2 {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 0.86) 9.1%,
+    rgba(18, 18, 18, 0) 43%
+  );
+}
+.hero_Overlay3 {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 0) 0%,
+    rgba(18, 18, 18, 0.7) 57%,
+    rgba(18, 18, 18, 0.97) 78%,
+    #121212 100%
+  );
+}
+.product_Card {
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(30px);
+}
+
+.opacity_Hover {
+  transition: all 0.3s;
+}
+
+.opacity_Hover:hover {
+  opacity: 0.7;
+}
+
+/* MEDIA QUERIES  */
+
+@media (min-width: 1024px) {
+}
+
+@media (max-width: 1024px) {
+  /* HAMBURGER  */
+  .menu {
+    position: relative;
+  }
+  .menu span {
+    @apply absolute bg-[#fff]  h-[0.5vw] w-full  left-0 transition-all duration-300;
+  }
+
+  .menu.active {
+    top: 1px;
+  }
+  .menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 50%;
+  }
+  .menu.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 50%;
+  }
+
+  .sideBar.active {
+    opacity: 1;
+    pointer-events: initial;
+  }
+  .sideBar {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .sideBar {
+    transition: all 0.5s;
+  }
+  body.active {
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  /* HAMBURGER  */
+}
+
+@media (min-width: 640px) {
+}
+@media (max-width: 640px) {
+}
+
+/* MEDIA QUERIES  */
