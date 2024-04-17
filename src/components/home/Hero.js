@@ -16,8 +16,9 @@ const Hero = () => {
                     <span className='atlwh_Full hero_Overlay3 bottom-0 top-[unset] lg:h-[33.5115277778vw] h-[51.112%] '></span>
                 </div>
                 <div className='atlwh_Full z-[-1]'>
-                    <img src="/images/home/hero.jpg" alt="hero" className='w-full h-full object-cover' />
-                    <video src="/video/hero.mp4" loop muted autoPlay className='w-full h-full object-cover atlwh_Full' > </video>
+                    <img src="/images/home/hero/hero.jpg" alt="hero" className='w-full h-full object-cover hidden lg:block' />
+                    <img src="/images/home/hero/hero-mob.jpg" alt="hero" className='w-full h-full object-cover lg:hidden block' />
+                    {/* <video src="/video/hero.mp4" loop muted autoPlay className='w-full h-full object-cover atlwh_Full' > </video> */}
                 </div>
                 <div
                     className="absolute bottom-[24px] sm:bottom-[35px] lg:bottom-[4.65277777778vw] transform left-[50%] translate-x-[-50%]
@@ -36,10 +37,10 @@ const Hero = () => {
             </div>
             <div className='relative z-[2] Container1240'>
                 <div className='text-center lg:text-start lg:w-[42.4305555556vw] sm:w-[unset] w-[297px] lg:mx-[unset] mx-[auto]'>
-                    <h1 className='f500 text-white text72'>
+                    <h1 data-aos="fade-up" className='f500 text-white text72'>
                         Hadeed
                     </h1>
-                    <p className='text-white text-opacity-[0.8] text24 mt-[4px] lg:mt-[0.83333333333vw]'>
+                    <p data-aos="fade-down" className='text-white text-opacity-[0.8] text24 mt-[4px] lg:mt-[0.83333333333vw]'>
                         Forging the future with eco-conscious steel production, SABIC's Hadid leads with innovation and responsibility in the Gulf's industrial growth
                     </p>
                 </div>

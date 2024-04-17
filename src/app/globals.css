@@ -26,6 +26,21 @@
   font-weight: 400;
   font-display: block;
 }
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/Rubik/Rubik-Light.ttf");
+  font-weight: 300;
+  font-display: block;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-Regular.ttf");
+  font-weight: 400;
+  font-display: block;
+}
+.Inter {
+  font-family: "Inter";
+}
 .Rubik {
   font-family: "Rubik";
 }
@@ -42,7 +57,7 @@ html {
     @apply mx-[auto] lg:w-[86.1111111111vw] sm:w-[90%] w-[345px];
   }
   .text16 {
-    @apply lg:text-[1.11111111111vw] lg:leading-[1.66666666667vw]
+    @apply lg:text-[1.25vw] lg:leading-[1.73611111111vw]
     sm:text-[16px] sm:leading-[22px]
     text-[14px] leading-[21px];
   }
@@ -64,6 +79,10 @@ html {
     @apply lg:text-[1.94444444444vw] lg:leading-[2.91666666667vw]
     sm:text-[32px] sm:leading-[46px]
     text-[28px] leading-[42px];
+  }
+  .text32 {
+    @apply lg:text-[2.22222222222vw] lg:leading-[3.33333333333vw] 
+    text-[32px] leading-[48px];
   }
   .text48 {
     @apply lg:text-[3.33333333333vw] lg:leading-[3.95833333333vw]
@@ -91,6 +110,13 @@ html {
   .atlwh_Full {
     @apply absolute w-full h-full top-0 leftRightFixer1;
   }
+  .ltr .fixeClose {
+    @apply lg:right-[37.0833333333vw] right-[15px];
+  }
+  .rtl .fixeClose {
+    @apply lg:left-[37.0833333333vw] left-[15px];
+  }
+
   .f500 {
     @apply font-[500];
   }
@@ -126,6 +152,13 @@ html {
   }
 }
 
+.ltr .member_Popup {
+  margin-left: auto;
+}
+.rtl .member_Popup {
+  margin-right: auto;
+}
+
 .member_Card button:hover svg path {
   fill: #ff9900;
 }
@@ -153,7 +186,9 @@ html {
   background: rgba(255, 255, 255, 0.16);
   backdrop-filter: blur(30px);
 }
-
+.drop_DownItems li:last-child {
+  border: unset;
+}
 .opacity_Hover {
   transition: all 0.3s;
 }
@@ -209,7 +244,10 @@ html {
 
   /* HAMBURGER  */
 }
-
+body.active {
+  height: 100svh;
+  overflow: hidden;
+}
 @media (min-width: 640px) {
 }
 @media (max-width: 640px) {

@@ -21,14 +21,14 @@ const Products = () => {
         <section className='bg-[#1A1C1F] lg:pt-[12.5vw] pt-[132px] lg:pb-[10.5555555556vw] pb-[125px]'>
             <div className='Container1240'>
                 <div className='w-[317px] mx-[auto] lg:w-[unset]'>
-                    <h2 className='f500 text-white text48'>
+                    <h2 data-aos='fade-up' className='f500 text-white text48'>
                         Our Products
                     </h2>
-                    <p className='text16 text-[#FBFBFB] lg:mt-[1.38888888889vw] mt-[8px]'>
+                    <p data-aos='fade-down' className='text16 text-[#FBFBFB] lg:mt-[1.11111111111vw] mt-[8px]'>
                         Hadeed’s metals products are supplied under the Hadeed brand. As a leader in the Gulf region for steel production and manufacturing, Hadeed produces high- quality metals, and has played a vital role in the construction and industrialization of some of the world’s fastest growing economies. We are responsibly working towards reducing the environmental footprint from our operations. Hadeed SOx and NOx figures for 2022 are 15.4 & 707.28 tons/year respectively
                     </p>
                 </div>
-                <div className='flex items-stretch justify-between flex-wrap gap-y-[40px] lg:my-[3.81944444444vw] my-[40px]'>
+                <div data-aos='fade-up' data-aos-delat='400' className='flex items-stretch justify-between flex-wrap gap-y-[40px] lg:my-[3.81944444444vw] my-[40px]'>
                     {
                         products.map((product, i) => (
                             <div key={i} className='product_Card border20 lg:w-[41.1805555556vw] w-full overflow-hidden'>
@@ -37,7 +37,7 @@ const Products = () => {
                                         <h5 className='text28'>
                                             {product.heading}
                                         </h5>
-                                        <p className='lg:mt-[0.27777777777vw] lg:mb-[0.55555555555vw] mt-[4px] mb-[11px] sm:text16 text-[16px] leading-[24px]  text-[#FBFBFB]'>
+                                        <p className='lg:h-[5.20833333333vw] lg:mt-[0.27777777777vw] lg:mb-[0.55555555555vw] mt-[4px] mb-[11px] sm:text16 text-[16px] leading-[24px]  text-[#FBFBFB]'>
                                             {product.text}
                                         </p>
                                         <span className='text18 f700'>
@@ -51,9 +51,9 @@ const Products = () => {
                     }
 
                 </div>
-                <Link href='/' className='mx-[auto] lg:w-[23.2638888889vw] w-full flex justify-center items-center gap-x-[4px] lg:gap-x-[0.27777777777vw] sm:text18 text-[16px] bg-[#FF9900] hover:bg-opacity-[0.8] lg:py-[1.00694444444vw] py-[16px] border7 text-white'>
+                <Link data-aos='fade' href='/pdf/code-of-conduct.pdf' target="_blank" download className='mx-[auto] lg:w-[23.2638888889vw] w-full flex justify-center items-center gap-x-[4px] lg:gap-x-[0.27777777777vw] sm:text18 text-[16px] bg-[#FF9900] hover:bg-opacity-[0.8] lg:py-[1.00694444444vw] py-[16px] border7 text-white'>
                     <img src="/images/icons/catalouge.svg" alt="catalouge" className='lg:w-[1.66666666667vw] lg:h-[1.66666666667vw] w-[24px] h-[24px]' />
-                    <span className='f500'> Long and Flat Product Catalogue</span>
+                    <span className='f500'> Product Catalogue</span>
                 </Link>
             </div>
         </section>
