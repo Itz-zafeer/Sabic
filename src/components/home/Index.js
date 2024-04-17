@@ -18,6 +18,19 @@ const HomePage = () => {
                         className=' absolute leftRightFixer2  lg:w-[38.6805555556vw] sm:w-[70%] w-full top-0'
                     />
                     <div className='Container1240 relative z-[2]'>
+                        <div className='popup'>
+                            <div className=' member_Card lg:w-[28.0555555556vw] w-[335px] border10'>
+                                <img src="/images/home/members/1.jpg" alt="members" className='border10 w-full h-[290px] lg:h-[20.1388888889vw]' />
+                                <h5 className='text20 f500 text-[#000] lg:mt-[0.76388888888vw] mt-[11px]'>
+                                    Earl Hansen
+                                </h5>
+                                <p className='mt-[4px] mb-[8px] lg:mt-[0.27777777777vw] lg:mb-[0.20833333333vw] sm:text16 text-[12px] leading-[18px] text-[#666666]'>
+                                    Central Integration Architect
+                                </p>
+
+                            </div>
+
+                        </div>
                         <div className='w-[335px] mx-[auto] lg:mx-[unset] lg:w-[51.3194444444vw]'>
                             <h2 className='f500 text-[#121212] text48'>
                                 Board Members
