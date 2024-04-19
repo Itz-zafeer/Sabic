@@ -4,22 +4,31 @@
 
 @font-face {
   font-family: "Tajawal";
-  src: url("/fonts/Tajawal/Tajawal-Regular.ttf");
-  font-weight: 400;
+  src: url("/fonts/Tajawal/Tajawal-Regular.woff2") format("woff2"),
+    url("/fonts/Tajawal/Tajawal-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
   font-display: block;
 }
+
 @font-face {
   font-family: "Tajawal";
-  src: url("/fonts/Tajawal/Tajawal-Medium.ttf");
+  src: url("/fonts/Tajawal/Tajawal-Medium.woff2") format("woff2"),
+    url("/fonts/Tajawal/Tajawal-Medium.woff") format("woff");
   font-weight: 500;
+  font-style: normal;
   font-display: block;
 }
+
 @font-face {
   font-family: "Tajawal";
-  src: url("/fonts/Tajawal/Tajawal-Bold.ttf");
-  font-weight: 700;
+  src: url("/fonts/Tajawal/Tajawal-Bold.woff2") format("woff2"),
+    url("/fonts/Tajawal/Tajawal-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
   font-display: block;
 }
+
 @font-face {
   font-family: "Rubik";
   src: url("/fonts/Rubik/Rubik-Regular.ttf");
@@ -51,10 +60,20 @@ body {
 html {
   scroll-behavior: smooth;
 }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 @layer components {
   .Container1240 {
-    @apply mx-[auto] lg:w-[86.1111111111vw] sm:w-[90%] w-[345px];
+    @apply mx-[auto] lg:w-[86.1111111111vw] sm:w-[90%] w-[88%];
   }
   .text16 {
     @apply lg:text-[1.25vw] lg:leading-[1.73611111111vw]
@@ -64,6 +83,11 @@ html {
   .text18 {
     @apply lg:text-[1.25vw] lg:leading-[1.875vw]
     text-[18px] leading-[27px];
+  }
+  header .text16 {
+    @apply lg:text-[1vw] lg:leading-[1.43611111111vw]
+    sm:text-[16px] sm:leading-[22px]
+    text-[14px] leading-[21px];
   }
   .text20 {
     @apply lg:text-[1.38888888889vw] lg:leading-[2.08333333333vw]
@@ -132,6 +156,29 @@ html {
   .border7 {
     @apply lg:rounded-[0.48611111111vw] rounded-[7px];
   }
+  .member_PopupMain {
+    opacity: 0;
+    transition: all 0.4s;
+    pointer-events: none;
+  }
+  .member_PopupMain.active {
+    opacity: 1;
+    pointer-events: initial;
+  }
+  .member_Popup {
+    transition: 0.5s all;
+    transition-timing-function: ease-out;
+  }
+  .ltr .member_Popup {
+    transform: translateX(100%);
+  }
+  .rtl .member_Popup {
+    transform: translateX(-100%);
+  }
+  .member_PopupMain.active .member_Popup {
+    transform: translateX(0);
+  }
+
   .member_Card button,
   .member_Card button svg,
   .member_Card button svg path {
