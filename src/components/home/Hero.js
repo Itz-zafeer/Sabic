@@ -55,8 +55,8 @@ const Hero = () => {
             data-aos="fade-down"
             className="text-white text-opacity-[0.8] text24 mt-[4px] lg:mt-[0.83333333333vw]"
           >
-            Forging the future with eco-conscious steel production, SABIC's
-            Hadid leads with innovation and responsibility in the Gulf's
+            Forging the future with eco-conscious steel production, SABIC&apos;s
+            Hadid leads with innovation and responsibility in the Gulf&apos;s
             industrial growth
           </p>
         </div>
