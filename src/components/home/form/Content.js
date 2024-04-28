@@ -22,7 +22,7 @@ const formLinks = [
 ];
 const Content = () => {
   return (
-    <div data-aos="fade-down" className="lg:w-[37.9166666667vw]">
+    <div data-aos="fade-down" className="lg:w-[35.9166666667vw]">
       <div>
         <h2 className="f500 text-white text48 capitalize">
           Get in touch with us

@@ -13,7 +13,7 @@ const MemberCard = ({ openPopup, member, bigCard }) => {
         alt="members"
         className={`border10 w-full ${
           bigCard ? "h-[240px]" : "h-[129px]"
-        }lg:h-[19.4444444444vw] object-cover`}
+        } lg:h-[19.4444444444vw] object-cover`}
       />
       <h5 className="text20 f500 text-[#000] lg:mt-[0.76388888888vw] mt-[11px]">
         {member?.title}

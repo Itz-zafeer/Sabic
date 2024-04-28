@@ -5,10 +5,10 @@ import Products from "./Products";
 import Members from "./Members";
 import FormSection from "./form/Index";
 
-const HomePage = () => {
+const HomePage = ({ arabic }) => {
   return (
     <div className="overflow-hidden relative">
-      <Hero />
+      <Hero arabic={arabic} />
       <div className="relative z-[2] overflow-hidden">
         <About />
 

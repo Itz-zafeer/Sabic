@@ -4,7 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
-const Layout = ({ children }) => {
+const Layout = ({ children, arabic }) => {
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -12,11 +12,11 @@ const Layout = ({ children }) => {
     });
   }, []);
   return (
-    <>
-      <Header />
+    <div className={arabic ? "rtl" : "ltr"}>
+      <Header arabic={arabic} />
       <main>{children}</main>
-      <Footer />
-    </>
+      <Footer arabic={arabic} />
+    </div>
   );
 };
 

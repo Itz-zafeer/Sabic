@@ -7,24 +7,7 @@ const skipSection = () => {
   window.scroll(0, window.innerHeight);
 };
 
-const slides = [
-  {
-    heading: " Hadeed",
-    desc: " Forging the future with eco-conscious steel production, SABIC's Hadid leads with innovation and responsibility in the Gulf's industrial growth",
-    img: "/images/home/hero/1.jpg"
-  },
-  {
-    heading: " Hadeed 02",
-    desc: " Lorem ipsum dolor sit amet consectetur. Proin sociis fringilla nec quis molestie egestas cras",
-    img: "/images/home/hero/2.jpg"
-  },
-  {
-    heading: " Hadeed 03",
-    desc: " Forging the future with eco-conscious steel production, SABIC's Hadid leads with innovation and responsibility in the Gulf's industrial growth",
-    img: "/images/home/hero/3.jpg"
-  }
-];
-const Hero = () => {
+const Hero = ({ arabic }) => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const timerRef = useRef(null); // Define timerRef using useRef
 
@@ -50,6 +33,31 @@ const Hero = () => {
       setCurrentSlide((prevSlide) => (prevSlide === 3 ? 1 : prevSlide + 1));
     }, 8000);
   };
+
+  const slides = [
+    {
+      heading: arabic ? "حــــديــــد" : " Hadeed",
+      desc: arabic
+        ? "صياغة المستقبل من خلال إنتاج الصلب الصديق للبيئة، حديد من سابك تقود النمو الصناعي في الخليج بالابتكار والمسؤولية"
+        : " Forging the future with eco-conscious steel production, SABIC's Hadid leads with innovation and responsibility in the Gulf's industrial growth",
+      img: "/images/home/hero/1.jpg"
+    },
+    {
+      heading: arabic ? "حــــديــــد 02" : " Hadeed 02",
+      desc: arabic
+        ? "صياغة المستقبل من خلال إنتاج الصلب الصديق للبيئة، حديد من سابك تقود النمو الصناعي في الخليج بالابتكار والمسؤولية"
+        : " Forging the future with eco-conscious steel production, SABIC's Hadid leads with innovation and responsibility in the Gulf's industrial growth",
+      img: "/images/home/hero/2.jpg"
+    },
+    {
+      heading: arabic ? "حــــديــــد 03" : " Hadeed 03",
+      desc: arabic
+        ? "صياغة المستقبل من خلال إنتاج الصلب الصديق للبيئة، حديد من سابك تقود النمو الصناعي في الخليج بالابتكار والمسؤولية"
+        : " Forging the future with eco-conscious steel production, SABIC's Hadid leads with innovation and responsibility in the Gulf's industrial growth",
+      img: "/images/home/hero/3.jpg"
+    }
+  ];
+
   return (
     <section
       id="homeSection"
