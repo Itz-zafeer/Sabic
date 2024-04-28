@@ -18,7 +18,7 @@ const Products = () => {
   return (
     <section
       id="productsSection"
-      className="bg-[#1A1C1F] lg:pt-[12.5vw] pt-[132px] lg:pb-[10.5555555556vw] pb-[125px]"
+      className="bg-[#1A1C1F]    lg:pt-[12.5vw] pt-[132px] lg:pb-[10.5555555556vw] pb-[125px]"
     >
       <div className="Container1240">
         <div className="w-[317px] mx-[auto] lg:w-[unset]">
@@ -67,7 +67,7 @@ const Products = () => {
         </div>
         <Link
           data-aos="fade"
-          href="/pdf/code-of-conduct.pdf"
+          href="/pdf/product-catalouge.pdf"
           target="_blank"
           download
           className="mx-[auto] lg:w-[23.2638888889vw] w-full flex justify-center items-center gap-x-[4px] lg:gap-x-[0.27777777777vw] sm:text18 text-[16px] bg-[#FF9900] hover:bg-opacity-[0.8] lg:py-[1.00694444444vw] py-[16px] border7 text-white"

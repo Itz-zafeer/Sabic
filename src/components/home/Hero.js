@@ -1,64 +1,93 @@
 "use client";
-
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Lottie from "react-lottie-player";
 import arrow from "../../../public/json/arrow.json";
+import HeroSlide from "./HeroSlide";
 const skipSection = () => {
   window.scroll(0, window.innerHeight);
 };
+
+const slides = [
+  {
+    heading: " Hadeed",
+    desc: " Forging the future with eco-conscious steel production, SABIC's Hadid leads with innovation and responsibility in the Gulf's industrial growth",
+    img: "/images/home/hero/1.jpg"
+  },
+  {
+    heading: " Hadeed 02",
+    desc: " Lorem ipsum dolor sit amet consectetur. Proin sociis fringilla nec quis molestie egestas cras",
+    img: "/images/home/hero/2.jpg"
+  },
+  {
+    heading: " Hadeed 03",
+    desc: " Forging the future with eco-conscious steel production, SABIC's Hadid leads with innovation and responsibility in the Gulf's industrial growth",
+    img: "/images/home/hero/3.jpg"
+  }
+];
 const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const timerRef = useRef(null); // Define timerRef using useRef
+
+  // Function to update the current slide manually
+  const updateSlide = (slideNumber) => {
+    setCurrentSlide(slideNumber);
+    resetTimer();
+  };
+
+  // Timer to automatically update the current slide every 8 seconds
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide === 3 ? 1 : prevSlide + 1));
+    }, 8000);
+
+    return () => clearInterval(timerRef.current);
+  }, []);
+
+  // Function to reset the timer
+  const resetTimer = () => {
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide === 3 ? 1 : prevSlide + 1));
+    }, 8000);
+  };
   return (
     <section
       id="homeSection"
-      className="h-[100vh] sm:h-[600px] lg:h-[100vh] relative z-[2] flex items-end pb-[127px] lg:pb-[33vh] sm:pb-[110px]"
+      className="h-[100vh] sm:h-[600px] lg:h-[100vh] relative z-[2] "
     >
-      <div className="overflow-hidden atlwh_Full">
-        <div className="atlwh_Full">
-          <span className="atlwh_Full bg-[#121212] bg-opacity-[0.6]"></span>
-          <span className="hero_Overlay2 atlwh_Full"></span>
-          <span className="atlwh_Full hero_Overlay3 bottom-0 top-[unset] lg:h-[33.5115277778vw] h-[51.112%] "></span>
-        </div>
-        <div className="atlwh_Full z-[-1]">
-          <img
-            src="/images/home/hero/hero.jpg"
-            alt="hero"
-            className="w-full h-full object-cover hidden lg:block"
+      <div className="overlays atlwh_Full z-[1]">
+        <div className="overlay_dark atlwh_Full"></div>
+        <div className="overlay_nav atlwh_Full"></div>
+      </div>
+      <div className="relative w-full h-full  ">
+        {slides?.map((slide, index) => (
+          <HeroSlide
+            key={index}
+            heading={slide.heading}
+            img={slide.img}
+            desc={slide.desc}
+            index={index + 1}
+            currentSlide={currentSlide}
           />
-          <img
-            src="/images/home/hero/hero-mob.jpg"
-            alt="hero"
-            className="w-full h-full object-cover lg:hidden block"
-          />
-          {/* <video src="/video/hero.mp4" loop muted autoPlay className='w-full h-full object-cover atlwh_Full' > </video> */}
+        ))}
+      </div>
+      <div className="overflow-hidden atlwh_Full ">
+        <div className="heroNavigation z-[2]">
+          {slides?.map((slide, index) => (
+            <span
+              key={index}
+              onClick={() => updateSlide(index + 1)}
+              className={`heroNavigationCircle ${
+                currentSlide == index + 1 ? "active" : ""
+              }`}
+            ></span>
+          ))}
         </div>
         <div
-          className="absolute bottom-[24px] sm:bottom-[35px] lg:bottom-[4.65277777778vw] transform left-[50%] translate-x-[-50%]
-  lg:w-[1.94444444444vw]  lg:h-[1.94444444444vw]
-  w-[28px] h-[28px] sm:w-[35px] sm:h-[35px] cursor-pointer"
+          className="absolute bottom-[24px] z-[10] sm:bottom-[35px] lg:bottom-[2.15277777778vw] transform left-[50%] translate-x-[-50%] lg:w-[1.66666666667vw]  lg:h-[2.77777777778vw]  w-[24px] h-[40px] sm:w-[35px] sm:h-[35px] cursor-pointer"
           onClick={skipSection}
         >
-          <Lottie
-            loop
-            animationData={arrow}
-            play
-            className="
-      w-full h-full"
-          />
-        </div>
-      </div>
-      <div className="relative z-[2] Container1240">
-        <div className="text-center lg:text-start lg:w-[42.4305555556vw] sm:w-[unset] w-[297px] lg:mx-[unset] mx-[auto]">
-          <h1 data-aos="fade-up" className="f500 text-white text72">
-            Hadeed
-          </h1>
-          <p
-            data-aos="fade-down"
-            className="text-white text-opacity-[0.8] text24 mt-[4px] lg:mt-[0.83333333333vw]"
-          >
-            Forging the future with eco-conscious steel production, SABIC&apos;s
-            Hadid leads with innovation and responsibility in the Gulf&apos;s
-            industrial growth
-          </p>
+          <Lottie loop animationData={arrow} play className="  w-full h-full" />
         </div>
       </div>
     </section>

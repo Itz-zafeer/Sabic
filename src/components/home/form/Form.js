@@ -44,6 +44,7 @@ const Form = () => {
   const [errors, setErrors] = useState({});
   const [openDropDown, setOpenDropDown] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const handleValue = (value) => {
     setValue("inquiryType", value);
@@ -53,16 +54,34 @@ const Form = () => {
   };
 
   const onSubmit = async (formData) => {
-    console.log(formData);
     setIsLoading(true);
 
     try {
       formDataSchema.parse(formData);
       // Simulate form submission delay (replace with your actual submission logic)
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setSuccessMessage(true);
-      setErrors({});
-      reset();
+      console.log(JSON.stringify(formData));
+      try {
+        const response = await fetch("/api/contact", {
+          method: "post",
+          body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+          setSuccessMessage(true);
+          setErrorMessage(false);
+
+          setErrors({});
+          reset();
+        } else {
+          // Handle HTTP error responses here
+          throw new Error("HTTP error " + response.status);
+        }
+      } catch (error) {
+        // Handle fetch-related errors
+        console.error("Fetch error:", error);
+        setErrorMessage(true);
+        setSuccessMessage(false);
+      }
     } catch (validationError) {
       const newErrors = {};
       validationError.errors?.forEach((newError) => {
@@ -154,6 +173,7 @@ const Form = () => {
                 type="text"
                 className={`lg:placeholder:text-[1.11111111111vw] placeholder:text-[16px] placeholder:text-white placeholder:text-opacity-[0.75] placeholder:font-[500] font-[500] lg:text-[1.11111111111vw]  text-[16px] lg:leading-[1.66666666667vw] leading-[24px] cursor-pointer bg-transparent w-[90%] outline-none  `}
                 placeholder={"Inquiry type"}
+                onKeyDown={(e) => e.preventDefault()}
                 {...register("inquiryType")}
               />
               <img
@@ -217,6 +237,11 @@ const Form = () => {
       {successMessage && (
         <span className="block text24 mt-[1vw] text-green-600">
           Your Form has been Successfully Submitted!
+        </span>
+      )}
+      {errorMessage && (
+        <span className="block text24 mt-[1vw] text-red-600">
+          Something went wrong, Try Again!
         </span>
       )}
     </form>

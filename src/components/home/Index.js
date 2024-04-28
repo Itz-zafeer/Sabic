@@ -9,8 +9,11 @@ const HomePage = () => {
   return (
     <div className="overflow-hidden relative">
       <Hero />
-      <About />
-      <Products />
+      <div className="relative z-[2] overflow-hidden">
+        <About />
+
+        <Products />
+      </div>
       <Members />
       <FormSection />
     </div>

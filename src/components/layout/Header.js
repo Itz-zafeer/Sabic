@@ -148,7 +148,6 @@ const Header = ({ arabic }) => {
       links.forEach((link, index) => {
         const yOffset = -fixedHeaderHeight;
         const element = document.getElementById(link.id);
-        console.log(element);
         const y =
           element?.getBoundingClientRect().top + window.pageYOffset + yOffset;
         prevLinks[index].y = y;

@@ -25,8 +25,8 @@ const navbarSocialIcons = [
 ];
 const Footer = () => {
   return (
-    <footer className="bg-white">
-      <div className="Container1240 lg:py-[1.38888888889vw] py-[17px] flex flex-wrap gap-y-[5px] lg:justify-between justify-center items-center lg:text-[0.97222222222vw] text-[13px] lg:leading-[1.45833333333vw] leading-[19.5px]">
+    <footer className="bg-white relative z-[2]">
+      <div className="Container1240 lg:py-[1vw] py-[17px] flex flex-wrap gap-y-[5px] lg:justify-between justify-center items-center lg:text-[0.72916666666vw] text-[13px] lg:leading-[1.04166666667vw] leading-[19.5px]">
         <Link
           target="_blank"
           href="https://brackets-tech.com/"
@@ -37,13 +37,13 @@ const Footer = () => {
             Brackets Technology
           </span>
         </Link>
-        <div className=" flex  justify-center items-center lg:gap-x-[1.66666666667vw] gap-x-[24px] ">
+        <div className=" flex  justify-center items-center lg:gap-x-[1.25vw] gap-x-[24px] ">
           {navbarSocialIcons.map((navbarSocialIcon, i) => (
             <Link
               target="_blank"
               href={`${navbarSocialIcon.link}`}
               key={i}
-              className="opacity_Hover relative w-[24px] h-[24px] lg:w-[1.66666666667vw] lg:h-[1.66666666667vw]"
+              className="opacity_Hover relative w-[24px] h-[24px] lg:w-[1.25vw] lg:h-[1.25vw]"
             >
               <Image
                 fill

@@ -2,7 +2,7 @@ import React from "react";
 
 const MemberPopup = ({ closePopup, memberData }) => {
   return (
-    <div className="member_PopupMain z-[3]  fixed top-0 leftRightFixer2 w-full h-[100vh] z-[555]">
+    <div className="member_PopupMain z-[555]  fixed top-0 leftRightFixer2 w-full h-[100vh]  ">
       <span
         onClick={closePopup}
         className=" bg-[#121212] bg-opacity-[0.7] atlwh_Full hidden lg:block"
@@ -13,7 +13,7 @@ const MemberPopup = ({ closePopup, memberData }) => {
         alt="close"
         className="hidden lg:block absolute fixeClose cursor-pointer  lg:w-[2.77777777778vw] w-[40px] top-[0.41666666666vw]"
       />
-      <div className="relative z-[3] member_Popup overflow-auto lg:w-[35.6944444444vw] w-full h-full bg-white pt-[100px] lg:pt-[3.61111111111vw]">
+      <div className="relative z-[555] member_Popup flex flex-col  overflow-auto lg:w-[35.6944444444vw] w-full h-full bg-white pt-[100px] lg:pt-[3.61111111111vw]">
         <img
           onClick={closePopup}
           src="/images/icons/close-mob.svg"
@@ -36,6 +36,14 @@ const MemberPopup = ({ closePopup, memberData }) => {
             {memberData?.desc}
           </p>
         </div>
+        <img
+          src="/images/home/members/popup-pattern.png"
+          className="w-full mt-[auto] lg:pt-[1vw] pt-[20px] sm:hidden"
+        />
+        <img
+          src="/images/home/members/popup-pattern-desktop.png"
+          className="w-full mt-[auto] lg:pt-[1vw] pt-[20px] hidden sm:block opacity-[0.3]"
+        />
       </div>
     </div>
   );

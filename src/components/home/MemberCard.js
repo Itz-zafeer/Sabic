@@ -1,25 +1,29 @@
 import React from "react";
 
-const MemberCard = ({ openPopup, member }) => {
+const MemberCard = ({ openPopup, member, bigCard }) => {
   return (
     <div
       onClick={() => openPopup(member)}
-      className="cursor-pointer member_Card lg:w-[18.75vw] w-[41.3333333333vw] border10"
+      className={`cursor-pointer member_Card lg:w-[18.75vw] ${
+        bigCard ? "w-full" : "w-[41.3333333333vw]"
+      } border10 text-black text-center`}
     >
       <img
         src={member?.img}
         alt="members"
-        className="border10 w-full h-[129px] lg:h-[13.6111111111vw] object-cover"
+        className={`border10 w-full ${
+          bigCard ? "h-[240px]" : "h-[129px]"
+        }lg:h-[19.4444444444vw] object-cover`}
       />
       <h5 className="text20 f500 text-[#000] lg:mt-[0.76388888888vw] mt-[11px]">
         {member?.title}
       </h5>
-      <p className="mt-[4px] mb-[8px] lg:mt-[0.27777777777vw] lg:mb-[0.20833333333vw] sm:text16 text-[12px] leading-[18px] text-[#666666]">
+      <p className="mt-[6px] mb-[8px] tracking-[0.8px] lg:tracking-[0.05555555555vw]  lg:mt-[0.27777777777vw] lg:mb-[0.25833333333vw] sm:text-[1.11111111111vw] text-[14px] leading-[20px] text-[#666666]">
         {member?.designation}
       </p>
-      <button className="text-[#000] flex items-center">
-        <span className="lg:text-[1.11111111111vw] lg:leading-[1.66666666667vw] text-[16px] leading-[24px]">
-          View
+      <button className="text-[#000] flex items-center mx-auto">
+        <span className="lg:text-[1.11111111111vw] lg:leading-[1.66666666667vw] font-[500] text-[16px] leading-[24px]">
+          Explore Bio
         </span>
         <svg
           className="lg:w-[0.97222222222vw] lg:h-[0.97222222222vw] w-[14px] h-[14px] flipped"

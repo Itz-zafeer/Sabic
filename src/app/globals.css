@@ -6,7 +6,25 @@
   font-family: "Tajawal";
   src: url("/fonts/Tajawal/Tajawal-Regular.woff2") format("woff2"),
     url("/fonts/Tajawal/Tajawal-Regular.woff") format("woff");
-  font-weight: normal;
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal/Tajawal-Light.woff2") format("woff2"),
+    url("/fonts/Tajawal/Tajawal-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal/Tajawal-ExtraLight.woff2") format("woff2"),
+    url("/fonts/Tajawal/Tajawal-ExtraLight.woff") format("woff");
+  font-weight: 200;
   font-style: normal;
   font-display: block;
 }
@@ -22,13 +40,30 @@
 
 @font-face {
   font-family: "Tajawal";
-  src: url("/fonts/Tajawal/Tajawal-Bold.woff2") format("woff2"),
-    url("/fonts/Tajawal/Tajawal-Bold.woff") format("woff");
-  font-weight: bold;
+  src: url("/fonts/Tajawal/Tajawal-ExtraBold.woff2") format("woff2"),
+    url("/fonts/Tajawal/Tajawal-ExtraBold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
   font-display: block;
 }
 
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal/Tajawal-Bold.woff2") format("woff2"),
+    url("/fonts/Tajawal/Tajawal-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal/Tajawal-Black.woff2") format("woff2"),
+    url("/fonts/Tajawal/Tajawal-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: block;
+}
 @font-face {
   font-family: "Rubik";
   src: url("/fonts/Rubik/Rubik-Regular.ttf");
@@ -56,6 +91,8 @@
 body {
   font-family: "Tajawal";
   font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 html {
   scroll-behavior: smooth;
@@ -85,7 +122,7 @@ input[type="number"] {
     text-[18px] leading-[27px];
   }
   header .text16 {
-    @apply lg:text-[1vw] lg:leading-[1.43611111111vw]
+    @apply lg:text-[1.25vw] lg:leading-[1.43611111111vw]
     sm:text-[16px] sm:leading-[22px]
     text-[14px] leading-[21px];
   }
@@ -156,6 +193,16 @@ input[type="number"] {
   .border7 {
     @apply lg:rounded-[0.48611111111vw] rounded-[7px];
   }
+
+  .heroNavigation {
+    @apply flex gap-x-[15px] lg:gap-x-[1.66666666667vw] absolute bottom-[110px] lg:bottom-[10.86111111111vw] left-[50%] transform translate-x-[-50%];
+  }
+  .heroNavigationCircle {
+    @apply w-[12px] h-[12px] lg:w-[1.11111111111vw] lg:h-[1.11111111111vw] bg-[#D9D9D9] rounded-full cursor-pointer hover:bg-[f90] transition-all duration-300;
+  }
+  .heroNavigationCircle.active {
+    @apply bg-[#f90];
+  }
   .member_PopupMain {
     opacity: 0;
     transition: all 0.4s;
@@ -210,7 +257,31 @@ input[type="number"] {
   fill: #ff9900;
 }
 
-.navbar_Overlay {
+.overlay_dark {
+  opacity: 0.6;
+  background: var(--121212, #121212);
+}
+.overlay_nav {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 0.86) 0%,
+    rgba(18, 18, 18, 0) 36.5%
+  );
+}
+.heroSlide [data-aos="fade-up"] {
+  transform: translate3d(0, 100px, 0) !important;
+}
+.heroSlide [data-aos="fade-down"] {
+  transform: translate3d(0, -100px, 0) !important;
+}
+.heroSlide [data-aos^="fade"][data-aos^="fade"] {
+  opacity: 0 !important;
+}
+.heroSlide.active [data-aos^="fade"][data-aos^="fade"].aos-animate {
+  opacity: 1 !important;
+  transform: translateZ(0) !important;
+}
+/* .navbar_Overlay {
   background: linear-gradient(180deg, #121212 0%, rgba(18, 18, 18, 0.07) 100%);
 }
 .hero_Overlay2 {
@@ -228,7 +299,7 @@ input[type="number"] {
     rgba(18, 18, 18, 0.97) 78%,
     #121212 100%
   );
-}
+} */
 .product_Card {
   background: rgba(255, 255, 255, 0.16);
   backdrop-filter: blur(30px);
@@ -298,6 +369,21 @@ body.active {
 @media (min-width: 640px) {
 }
 @media (max-width: 640px) {
+  .mobileMemberSlider .mobileMemberSliderWrapper {
+    @apply flex transition-all duration-500;
+  }
+  .mobileMemberSlider .mobileMemberSliderWrapper .Container1240 {
+    @apply min-w-[100%] px-[6%];
+  }
+  .mobileMemberSliderNavigation {
+    @apply flex justify-center items-center relative mt-[40px] gap-x-[5px];
+  }
+  .mobileMemberSliderNavigation .navItems {
+    @apply w-[10px] h-[10px] rounded-full bg-[#D9D9D9]  transition-all duration-300;
+  }
+  .mobileMemberSliderNavigation .navItems.active {
+    @apply w-[33px]    rounded-[30px] bg-[#f90];
+  }
 }
 
 /* MEDIA QUERIES  */
