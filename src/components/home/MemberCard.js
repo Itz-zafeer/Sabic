@@ -1,21 +1,19 @@
 import React from "react";
 
-const MemberCard = ({ openPopup, member, bigCard }) => {
+const MemberCard = ({ openPopup, member, bigCard, arabic }) => {
   return (
     <div
       onClick={() => openPopup(member)}
-      className={`cursor-pointer member_Card lg:w-[18.75vw] ${
-        bigCard ? "w-full" : "w-[41.3333333333vw]"
-      } border10 text-black text-center`}
+      className={`cursor-pointer member_Card lg:w-[18.75vw] ${bigCard ? "w-full" : "w-[41.3333333333vw]"
+        } border10 text-black text-center`}
     >
       <img
         src={member?.img}
         alt="members"
-        className={`border10 w-full ${
-          bigCard ? "h-[240px]" : "h-[129px]"
-        } lg:h-[19.4444444444vw] object-cover`}
+        className={`border10 w-full ${bigCard ? "h-[240px]" : "h-[129px]"
+          } lg:h-[19.4444444444vw] object-cover`}
       />
-      <h5 className="text20 f500 text-[#000] lg:mt-[0.76388888888vw] mt-[11px]">
+      <h5 className={`${arabic ? "lg:text-[1.38888888889vw] lg:leading-[2.08333333333vw] font-[400] sm:text-[22px] sm:leading-[32px]" : "lg:text-[1.38888888889vw] lg:leading-[2.08333333333vw] f500     text-[18px] leading-[27px]"}    text-[#000] lg:mt-[0.76388888888vw] mt-[11px]`}>
         {member?.title}
       </h5>
       <p className="mt-[6px] mb-[8px] tracking-[0.8px] lg:tracking-[0.05555555555vw]  lg:mt-[0.27777777777vw] lg:mb-[0.25833333333vw] sm:text-[1.11111111111vw] text-[14px] leading-[20px] text-[#666666]">
@@ -23,7 +21,7 @@ const MemberCard = ({ openPopup, member, bigCard }) => {
       </p>
       <button className="text-[#000] flex items-center mx-auto">
         <span className="lg:text-[1.11111111111vw] lg:leading-[1.66666666667vw] font-[500] text-[16px] leading-[24px]">
-          Explore Bio
+          {arabic ? "المزيد" : "Explore Bio"}
         </span>
         <svg
           className="lg:w-[0.97222222222vw] lg:h-[0.97222222222vw] w-[14px] h-[14px] flipped"

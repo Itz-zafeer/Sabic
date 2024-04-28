@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const About = () => {
+const About = ({ arabic }) => {
   return (
     <section
       id="aboutSection"
@@ -14,7 +14,8 @@ const About = () => {
       /> */}
       <img
         src="/images/home/about/pattern.png"
-        className="w-[250%] h-[600px] lg:w-[38.6805555556vw] lg:h-[60.4166666667vw] bottom-0 left-0 absolute object-cover"
+        className="w-[250%] h-[600px] lg:w-[38.6805555556vw] lg:h-[60.4166666667vw] bottom-0 leftRightFixer1 flipped absolute object-cover"
+        alt="pattern"
       />
 
       <div
@@ -24,47 +25,35 @@ const About = () => {
       >
         <div className="lg:pt-[1.31944444444vw] lg:w-[46.875vw] text16 flex flex-col lg:gap-y-[1.6vw] gap-y-[25px] text-[#121212]">
           <div>
-            <h2 className="text48 font-[300] text-[#121212]  lg:w-[38.5416666667vw]">
-              Saudi Iron and Steel{" "}
+            <h2 className={`${arabic ? "font-[500]" : "font-[300]"} text48  text-[#121212]  lg:w-[38.5416666667vw]`}>
+              {arabic ? "الشركة السعودية للحديد والصلب " : "Saudi Iron and Steel "}
               <span className="font-[700]">
-                Company <span className="text-[#F90]">(Hadeed)</span>
+                {arabic || "Company"} <span className="text-[#F90]">{arabic ? "(حـــديـــد)" : "(Hadeed)"}</span>
               </span>
             </h2>
             <div className="flex flex-col lg:gap-y-[1.6vw] lg:mt-[0.83333333333vw] mt-[8px] text20 gap-y-[25px]">
               <p>
-                Hadeed supply a wide range of high-quality flat and long steel
-                products. Hadeed’s products have contributed to supporting the
-                urban renaissance locally and globally, providing the
-                construction and downstream industries – including oil, gas, and
-                water pipelines – high-value products manufactured by a
-                qualified national workforce with leading research and
-                technology capabilities.
+                {arabic ? "توفر حديد مجموعة واسعة من المنتجات الفولاذية المسطحة والطويلة عالية الجودة. وقد ساهمت منتجات حديد في دعم النهضة الحضرية محلياً وعالمياً، حيث قدمت لصناعات البناء والصناعات التحويلية - بما في ذلك خطوط أنابيب النفط والغاز والمياه - منتجات عالية القيمة تصنعها قوى عاملة وطنية مؤهلة تتمتع بقدرات بحثية وتكنولوجية رائدة." : "Hadeed supply a wide range of high-quality flat and long steel products. Hadeed’s products have contributed to supporting the urban renaissance locally and globally, providing the construction and downstream industries – including oil, gas, and water pipelines – high-value products manufactured by a qualified national workforce with leading research and technology capabilities."}
               </p>
               <p className="font-[500]">
-                Hadeed is a key player in the Saudi strategic industries with a
-                pivotal role in enabling Saudi Vision 2030.
+                {arabic ? "حديد لاعب رئيسي في الصناعات الاستراتيجية السعودية ولها دور محوري في تمكين رؤية السعودية 2030." : "Hadeed is a key player in the Saudi strategic industries with a pivotal role in enabling Saudi Vision 2030."}
               </p>
             </div>
           </div>
           <div>
             <h4 className="sm:text24  text-[24px] leading-[33px] f500">
-              Our Vision
+              {arabic ? "رؤيتنا" : "Our Vision"}
             </h4>
             <p className="mt-[6px] lg:mt-[unset] text20">
-              To be the preferred local and regional leader in the steel
-              industry.
+              {arabic ? "أن نكون الشركة الرائدة محلياً وإقليمياً في صناعة الصلب." : "To be the preferred local and regional leader in the steel industry."}
             </p>
           </div>
           <div>
             <h4 className="sm:text24  text-[24px] leading-[33px] f500">
-              Our Mission
+              {arabic ? "مهمتنا" : "Our Mission"}
             </h4>
             <p className="mt-[6px] lg:mt-[unset] text20">
-              To offer our customers quality, innovative, and diverse steel
-              solutions in collaboration with our resources, while maintaining
-              the best-in-class Environment, Health, Safety, Security, and
-              Reliability standards to maximize the value for our stakeholders
-              and enabling Saudi Vision 2030.
+              {arabic ? "أن نقدم لعملائنا حلولاً فولاذية عالية الجودة ومبتكرة ومتنوعة بالتعاون مع مواردنا، مع الحفاظ على أفضل معايير البيئة والصحة والسلامة والأمن والموثوقية لتحقيق أقصى قدر من القيمة لأصحاب المصلحة لدينا وتمكين الرؤية السعودية 2030." : "To offer our customers quality, innovative, and diverse steel solutions in collaboration with our resources, while maintaining the best-in-class Environment, Health, Safety, Security, and Reliability standards to maximize the value for our stakeholders and enabling Saudi Vision 2030."}
             </p>
           </div>
           <Link
@@ -78,7 +67,7 @@ const About = () => {
               alt="download"
               className="lg:w-[1.66666666667vw] lg:h-[1.66666666667vw] w-[24px] h-[24px]"
             />
-            <span>Download Code of Conduct</span>
+            <span className={`${arabic ? "font-[400]" : "font-[500]"}`}>{arabic ? "تحميل قواعد السلوك" : "Download Code of Conduct"}</span>
           </Link>
         </div>
       </div>
@@ -97,15 +86,15 @@ const About = () => {
         />
         <div
           data-aos="fade"
-          className="w-[29.7222222222vw]  hidden lg:block  top-0 right-0   absolute h-[43.0555555556vw] rounded-[1vw] overflow-hidden"
+          className="w-[29.7222222222vw]  hidden lg:block  top-0 leftRightFixer2   absolute h-[43.0555555556vw] rounded-[1vw] overflow-hidden"
         >
-          <img src="/images/about/02.png" className="w-full" />
+          <img src="/images/about/02.png" className="w-full flipped" />
         </div>
         <div
           data-aos="fade"
-          className="w-[9.23611111111vw]  hidden lg:block  bottom-0 left-0  absolute h-[33.8194444444vw] overflow-hidden rounded-tr-[1vw]  rounded-br-[1vw]"
+          className="w-[9.23611111111vw]  hidden lg:block  bottom-0 leftRightFixer1  absolute h-[33.8194444444vw] overflow-hidden rounded-tr-[1vw]  rounded-br-[1vw]"
         >
-          <img src="/images/about/01.png" className="w-full" />
+          <img src="/images/about/01.png" className="w-full flipped" />
         </div>
       </div>
     </section>

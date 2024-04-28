@@ -38,7 +38,7 @@ const inquiries = [
   }
 ];
 
-const Form = () => {
+const Form = ({ arabic }) => {
   const { register, handleSubmit, setValue, reset } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -100,25 +100,23 @@ const Form = () => {
       className="lg:w-[38.4722222222vw]"
     >
       <div
-        className={` w-full flex flex-col ${
-          Object.keys(errors).length > 0
-            ? " gap-y-[30px] mb-[15px] lg:gap-y-[2.5vw]  lg:mb-[1.25vw]"
-            : " lg:gap-y-[1.66666666667vw] gap-y-[16px] "
-        } `}
+        className={` w-full flex flex-col ${Object.keys(errors).length > 0
+          ? " gap-y-[30px] mb-[15px] lg:gap-y-[2.5vw]  lg:mb-[1.25vw]"
+          : " lg:gap-y-[1.66666666667vw] gap-y-[16px] "
+          } `}
       >
         <div
-          className={`flex justify-between items-center flex-wrap  ${
-            Object.keys(errors).length > 0
-              ? " gap-y-[30px]   lg:gap-y-[2.5vw]   "
-              : " lg:gap-y-[1.66666666667vw] gap-y-[16px] "
-          }`}
+          className={`flex justify-between items-center flex-wrap  ${Object.keys(errors).length > 0
+            ? " gap-y-[30px]   lg:gap-y-[2.5vw]   "
+            : " lg:gap-y-[1.66666666667vw] gap-y-[16px] "
+            }`}
         >
           <div className="w-full lg:w-[unset]">
             <div className="lg:w-[18.8194444444vw] w-full lg:py-[0.97222222222vw] py-[8px] lg:px-[2vw] px-[20px] border7 flex justify-between items-center border  border-[#ffffff1a] bg-[#FFFFFF1A]">
               <input
                 type="text"
                 className={`lg:placeholder:text-[1.11111111111vw] placeholder:text-[16px] placeholder:text-white text-white w-full placeholder:text-opacity-[0.75] placeholder:font-[500] font-[500] lg:text-[1.11111111111vw]  text-[16px] lg:leading-[1.66666666667vw] leading-[24px]   bg-transparent w-[90%] outline-none  `}
-                placeholder="Name"
+                placeholder={`${arabic ? "الاسم " : "Name"}`}
                 {...register("name")}
               />
             </div>
@@ -133,7 +131,7 @@ const Form = () => {
               <input
                 type="text"
                 className={`lg:placeholder:text-[1.11111111111vw] placeholder:text-[16px] placeholder:text-white text-white w-full placeholder:text-opacity-[0.75] placeholder:font-[500] font-[500] lg:text-[1.11111111111vw]  text-[16px] lg:leading-[1.66666666667vw] leading-[24px]   bg-transparent w-[90%] outline-none  `}
-                placeholder="Email"
+                placeholder={`${arabic ? "الايميل " : "Email"}`}
                 {...register("email")}
               />
             </div>
@@ -149,7 +147,7 @@ const Form = () => {
             <input
               type="number"
               className={`lg:placeholder:text-[1.11111111111vw] placeholder:text-[16px] placeholder:text-white text-white w-full placeholder:text-opacity-[0.75] placeholder:font-[500] font-[500] lg:text-[1.11111111111vw]  text-[16px] lg:leading-[1.66666666667vw] leading-[24px]   bg-transparent w-[90%] outline-none  `}
-              placeholder="Mobile number"
+              placeholder={`${arabic ? "رقم الجوال " : "Mobile number"}`}
               {...register("mobileNumber")}
             />
           </div>
@@ -172,22 +170,20 @@ const Form = () => {
               <input
                 type="text"
                 className={`lg:placeholder:text-[1.11111111111vw] placeholder:text-[16px] placeholder:text-white placeholder:text-opacity-[0.75] placeholder:font-[500] font-[500] lg:text-[1.11111111111vw]  text-[16px] lg:leading-[1.66666666667vw] leading-[24px] cursor-pointer bg-transparent w-[90%] outline-none  `}
-                placeholder={"Inquiry type"}
+                placeholder={`${arabic ? "اكتب استفسارك " : "Inquiry type"}`}
                 onKeyDown={(e) => e.preventDefault()}
                 {...register("inquiryType")}
               />
               <img
                 src="/images/icons/arrow-down.svg"
                 alt="chevron"
-                className={`${
-                  openDropDown ? "scale-y-[-1]" : ""
-                } transition-all duration-300 transform lg:min-w-[1.52777777778vw] lg:w-[1.52777777778vw] lg:h-[1.52777777778vw] min-w-[22px] w-[22px] h-[22px]`}
+                className={`${openDropDown ? "scale-y-[-1]" : ""
+                  } transition-all duration-300 transform lg:min-w-[1.52777777778vw] lg:w-[1.52777777778vw] lg:h-[1.52777777778vw] min-w-[22px] w-[22px] h-[22px]`}
               />
             </div>
             <div
-              className={`${
-                openDropDown ? "max-h-[500px] " : "max-h-0"
-              } drop_DownItems z-[2] border7 transition-all duration-300 overflow-hidden absolute w-full top-[100%] leftRightFixer1`}
+              className={`${openDropDown ? "max-h-[500px] " : "max-h-0"
+                } drop_DownItems z-[2] border7 transition-all duration-300 overflow-hidden absolute w-full top-[100%] leftRightFixer1`}
             >
               <ul className="bg-[#868686] lg:px-[2vw] px-[20px] lg:py-[0.76388888888vw] py-[10px] flex flex-col lg:gap-y-[0.76388888888vw] gap-y-[10px]">
                 {inquiries?.map((value, index) => (
@@ -213,7 +209,7 @@ const Form = () => {
         <div>
           <div className="lg:py-[0.97222222222vw] py-[8px] lg:px-[2vw] px-[20px] border7 flex justify-between items-center border  border-[#ffffff1a] bg-[#FFFFFF1A]">
             <textarea
-              placeholder="Message"
+              placeholder={`${arabic ? "اكتب رسالتك " : "Message"}`}
               {...register("message")}
               className="lg:placeholder:text-[1.11111111111vw] placeholder:text-[16px] placeholder:text-white text-white w-full placeholder:text-opacity-[0.75] placeholder:font-[500] font-[500] lg:text-[1.11111111111vw]  text-[16px] lg:leading-[1.66666666667vw] leading-[24px]   bg-transparent w-full outline-none"
             ></textarea>
@@ -228,11 +224,10 @@ const Form = () => {
       <button
         disabled={isLoading}
         type="submit"
-        className={`capitalize f500 text18 border7 bg-[#FF9900] text-white hover:bg-opacity-[0.7] lg:py-[0.97222222222vw] lg:px-[2.83333333333vw] py-[14px] w-full lg:w-[unset] mt-[24px] lg:mt-[1.66666666667vw] ${
-          isLoading ? "opacity-[0.7] pointer-events-none " : ""
-        }`}
+        className={`capitalize f500 text18 border7 bg-[#FF9900] text-white hover:bg-opacity-[0.7] lg:py-[0.97222222222vw] lg:px-[2.83333333333vw] py-[14px] w-full lg:w-[unset] mt-[24px] lg:mt-[1.66666666667vw] ${isLoading ? "opacity-[0.7] pointer-events-none " : ""
+          }`}
       >
-        {isLoading ? "Loading..." : "Send Message"}
+        {isLoading ? "Loading..." : arabic ? "إرســــــال الرســـالة" : "Send Message"}
       </button>
       {successMessage && (
         <span className="block text24 mt-[1vw] text-green-600">

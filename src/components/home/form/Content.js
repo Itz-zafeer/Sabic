@@ -20,17 +20,15 @@ const formLinks = [
     alt: "phone"
   }
 ];
-const Content = () => {
+const Content = ({ arabic }) => {
   return (
     <div data-aos="fade-down" className="lg:w-[35.9166666667vw]">
       <div>
         <h2 className="f500 text-white text48 capitalize">
-          Get in touch with us
+          {arabic ? "ابق على تواصل معنا" : "Get in touch with us"}
         </h2>
         <p className="lg:mt-[0.69444444444vw] mt-[8px] text-white text-opacity-[0.7] text16">
-          Lorem ipsum is a placeholder text commonly used to demonstrate the
-          visual form of a document or a typeface without relying on meaningful
-          content.
+          {arabic ? "لوريم إيبسوم هو نص نائب يستخدم عادة لتوضيح الشكل المرئي للمستند أو المحرف دون الاعتماد على محتوى ذي معنى." : "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content."}
         </p>
       </div>
       <ul className="sm:text16 text-[13px] leading-[19.5px] flex flex-col lg:gap-y-[0.90277777777vw] lg:mt-[2.08333333333vw] gap-y-[13px] mt-[13px]">

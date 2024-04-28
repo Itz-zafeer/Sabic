@@ -10,12 +10,12 @@ const HomePage = ({ arabic }) => {
     <div className="overflow-hidden relative">
       <Hero arabic={arabic} />
       <div className="relative z-[2] overflow-hidden">
-        <About />
+        <About arabic={arabic} />
 
-        <Products />
+        <Products arabic={arabic} />
       </div>
-      <Members />
-      <FormSection />
+      <Members arabic={arabic} />
+      <FormSection arabic={arabic} />
     </div>
   );
 };

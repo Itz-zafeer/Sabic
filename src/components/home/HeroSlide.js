@@ -4,12 +4,11 @@ import React from "react";
 const HeroSlide = ({ img, heading, desc, currentSlide, index }) => {
   return (
     <div
-      className={` ${
-        currentSlide == index ? "active" : ""
-      } w-full h-full heroSlide absolute top-0 flex items-end pb-[150px] lg:pb-[13.5vw] `}
+      className={` ${currentSlide == index ? "active" : ""
+        } w-full h-full heroSlide absolute top-0 flex items-end pb-[150px] lg:pb-[13.5vw] `}
     >
       <div className="atlwh_Full" data-aos="fade">
-        <Image src={img} fill className="object-cover" />
+        <Image src={img} fill className="object-cover" alt="hero" />
       </div>
       <div className="relative z-[2] Container1240">
         <div className="text-center   lg:w-[49.56vw] sm:w-[unset] w-[90%]    mx-[auto]">
